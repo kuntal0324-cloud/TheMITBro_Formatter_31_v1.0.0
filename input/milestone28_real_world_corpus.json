@@ -1,0 +1,951 @@
+{
+  "contract": "M28",
+  "version": "28.0",
+  "description": "Real-world representative corpus for formatter compatibility and no-manual-repair validation.",
+  "case_count": 20,
+  "families": [
+    "algebra",
+    "matrices",
+    "complex",
+    "trigonometry",
+    "logarithms",
+    "limits",
+    "differentiation",
+    "integration",
+    "differential-equations",
+    "probability",
+    "statistics",
+    "vectors",
+    "complex-analysis",
+    "numerical",
+    "fourier",
+    "laplace",
+    "engineering-math",
+    "mcq-mixed",
+    "unicode",
+    "diagram"
+  ],
+  "papers": [
+    {
+      "schema_version": "1.0",
+      "title": "M28 Algebra and Polynomial Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Algebra and Polynomial",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "algebra-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "Simplify $x^2-5x+6$ and factor the result.",
+          "options": []
+        },
+        {
+          "id": "algebra-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Algebra and Polynomial.",
+          "options": []
+        },
+        {
+          "id": "algebra-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-01-algebra",
+        "milestone": "M28",
+        "family": "algebra"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Matrices Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Matrices",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "matrices-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "For $A=\\begin{bmatrix}1&2\\\\3&4\\end{bmatrix}$, find $\\det(A)$.",
+          "options": []
+        },
+        {
+          "id": "matrices-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Matrices.",
+          "options": []
+        },
+        {
+          "id": "matrices-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-02-matrices",
+        "milestone": "M28",
+        "family": "matrices"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Complex Numbers Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Complex Numbers",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "complex-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "For $z=3+4i$, determine $|z|$ and $\\arg z$.",
+          "options": []
+        },
+        {
+          "id": "complex-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Complex Numbers.",
+          "options": []
+        },
+        {
+          "id": "complex-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-03-complex",
+        "milestone": "M28",
+        "family": "complex"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Trigonometry Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Trigonometry",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "trigonometry-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "Solve $\\sin x=\\frac{1}{2}$ for $0\\leq x\\leq 2\\pi$.",
+          "options": []
+        },
+        {
+          "id": "trigonometry-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Trigonometry.",
+          "options": []
+        },
+        {
+          "id": "trigonometry-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-04-trigonometry",
+        "milestone": "M28",
+        "family": "trigonometry"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Logarithms Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Logarithms",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "logarithms-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "Solve $\\log_2(x)=5$.",
+          "options": []
+        },
+        {
+          "id": "logarithms-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Logarithms.",
+          "options": []
+        },
+        {
+          "id": "logarithms-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-05-logarithms",
+        "milestone": "M28",
+        "family": "logarithms"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Limits Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Limits",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "limits-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "Evaluate $\\lim_{x\\to0}\\frac{\\sin x}{x}$.",
+          "options": []
+        },
+        {
+          "id": "limits-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Limits.",
+          "options": []
+        },
+        {
+          "id": "limits-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-06-limits",
+        "milestone": "M28",
+        "family": "limits"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Differentiation Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Differentiation",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "differentiation-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "Find $\\frac{d}{dx}(x^3e^x)$.",
+          "options": []
+        },
+        {
+          "id": "differentiation-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Differentiation.",
+          "options": []
+        },
+        {
+          "id": "differentiation-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-07-differentiation",
+        "milestone": "M28",
+        "family": "differentiation"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Integration Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Integration",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "integration-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "Evaluate $\\int_0^1 2x\\,dx$.",
+          "options": []
+        },
+        {
+          "id": "integration-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Integration.",
+          "options": []
+        },
+        {
+          "id": "integration-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-08-integration",
+        "milestone": "M28",
+        "family": "integration"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Differential Equations Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Differential Equations",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "differential-equations-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "Solve $\\frac{dy}{dx}+y=0$ with $y(0)=2$.",
+          "options": []
+        },
+        {
+          "id": "differential-equations-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Differential Equations.",
+          "options": []
+        },
+        {
+          "id": "differential-equations-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-09-differential-equations",
+        "milestone": "M28",
+        "family": "differential-equations"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Probability Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Probability",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "probability-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "A fair die is rolled once. Find $P(X\\ge3)$.",
+          "options": []
+        },
+        {
+          "id": "probability-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Probability.",
+          "options": []
+        },
+        {
+          "id": "probability-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-10-probability",
+        "milestone": "M28",
+        "family": "probability"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Statistics Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Statistics",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "statistics-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "Find the mean of $2,4,6,8$.",
+          "options": []
+        },
+        {
+          "id": "statistics-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Statistics.",
+          "options": []
+        },
+        {
+          "id": "statistics-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-11-statistics",
+        "milestone": "M28",
+        "family": "statistics"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Vectors Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Vectors",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "vectors-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "For $\\mathbf a=(1,2,3)$ and $\\mathbf b=(2,0,1)$, find $\\mathbf a\\cdot\\mathbf b$.",
+          "options": []
+        },
+        {
+          "id": "vectors-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Vectors.",
+          "options": []
+        },
+        {
+          "id": "vectors-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-12-vectors",
+        "milestone": "M28",
+        "family": "vectors"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Complex Analysis Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Complex Analysis",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "complex-analysis-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "Evaluate the residue of $f(z)=1/z$ at $z=0$.",
+          "options": []
+        },
+        {
+          "id": "complex-analysis-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Complex Analysis.",
+          "options": []
+        },
+        {
+          "id": "complex-analysis-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-13-complex-analysis",
+        "milestone": "M28",
+        "family": "complex-analysis"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Numerical Methods Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Numerical Methods",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "numerical-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "Use one Newton iteration for $x^2-2=0$ starting from $x_0=1$.",
+          "options": []
+        },
+        {
+          "id": "numerical-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Numerical Methods.",
+          "options": []
+        },
+        {
+          "id": "numerical-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-14-numerical",
+        "milestone": "M28",
+        "family": "numerical"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Fourier Series Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Fourier Series",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "fourier-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "State the fundamental angular frequency for a periodic signal of period $T$.",
+          "options": []
+        },
+        {
+          "id": "fourier-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Fourier Series.",
+          "options": []
+        },
+        {
+          "id": "fourier-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-15-fourier",
+        "milestone": "M28",
+        "family": "fourier"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Laplace Transform Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Laplace Transform",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "laplace-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "Find $\\mathcal L\\{1\\}$.",
+          "options": []
+        },
+        {
+          "id": "laplace-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Laplace Transform.",
+          "options": []
+        },
+        {
+          "id": "laplace-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-16-laplace",
+        "milestone": "M28",
+        "family": "laplace"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Engineering Mathematics Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Engineering Mathematics",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "engineering-math-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "Find the eigenvalues of $\\begin{bmatrix}2&0\\\\0&3\\end{bmatrix}$.",
+          "options": []
+        },
+        {
+          "id": "engineering-math-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Engineering Mathematics.",
+          "options": []
+        },
+        {
+          "id": "engineering-math-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-17-engineering-math",
+        "milestone": "M28",
+        "family": "engineering-math"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Mixed MCQ Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Mixed MCQ",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "mcq-mixed-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "Which value satisfies $x^2=9$?",
+          "options": []
+        },
+        {
+          "id": "mcq-mixed-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Mixed MCQ.",
+          "options": []
+        },
+        {
+          "id": "mcq-mixed-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-18-mcq-mixed",
+        "milestone": "M28",
+        "family": "mcq-mixed"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Unicode Mathematics Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Unicode Mathematics",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "unicode-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "Evaluate π and compare x ≤ y using ∑ notation.",
+          "options": []
+        },
+        {
+          "id": "unicode-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Unicode Mathematics.",
+          "options": []
+        },
+        {
+          "id": "unicode-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-19-unicode",
+        "milestone": "M28",
+        "family": "unicode"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M28 Diagram Integration Corpus Case",
+      "exam": "GATE/JEE",
+      "subject": "Diagram Integration",
+      "duration_minutes": 60,
+      "total_marks": 6,
+      "instructions": [
+        "Answer all questions.",
+        "Preserve mathematical notation and Unicode exactly where supported."
+      ],
+      "questions": [
+        {
+          "id": "diagram-q1",
+          "number": 1,
+          "marks": 2,
+          "text": "Study points A(0,0) and B(3,4) in the coordinate plane.",
+          "diagrams": [
+            {
+              "diagram_type": "coordinate_geometry",
+              "title": "M28 Coordinate Figure",
+              "coordinate_system": "cartesian",
+              "points": [
+                {
+                  "x": 0,
+                  "y": 0,
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "x": 3,
+                  "y": 4,
+                  "id": "B",
+                  "label": "B"
+                }
+              ]
+            }
+          ],
+          "options": []
+        },
+        {
+          "id": "diagram-q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Give one concise verification step for the result in Diagram Integration.",
+          "options": []
+        },
+        {
+          "id": "diagram-q3",
+          "number": 3,
+          "marks": 2,
+          "text": "Select the correct statement about the expression.",
+          "options": [
+            "The expression is valid.",
+            "The expression has no defined value.",
+            "The expression is always zero.",
+            "The expression is not mathematical."
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "m28-20-diagram",
+        "milestone": "M28",
+        "family": "diagram"
+      }
+    }
+  ]
+}

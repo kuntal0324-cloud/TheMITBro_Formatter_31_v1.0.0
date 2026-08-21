@@ -1,0 +1,408 @@
+{
+  "version": "22.0",
+  "purpose": "Deterministic large-scale regression corpus covering all M17/M18 diagram families.",
+  "case_count": 76,
+  "families": [
+    "block_diagram",
+    "circuit_diagram",
+    "control_system_diagram",
+    "coordinate_geometry",
+    "function_plot",
+    "geometric_figure",
+    "graph",
+    "logic_circuit",
+    "motor_diagram",
+    "network_diagram",
+    "number_line",
+    "phasor_diagram",
+    "probability_diagram",
+    "signal_diagram",
+    "statistical_plot",
+    "transformer_equivalent_circuit",
+    "vector_diagram",
+    "venn_diagram",
+    "waveform"
+  ],
+  "cases": [
+    {
+      "id": "coor-01",
+      "family": "coordinate_geometry",
+      "prompt": "Draw a coordinate geometry diagram for points A(0,0) and B(3,4)."
+    },
+    {
+      "id": "coor-02",
+      "family": "coordinate_geometry",
+      "prompt": "Plot the coordinate plane with points (-2,1) and (4,-3)."
+    },
+    {
+      "id": "coor-03",
+      "family": "coordinate_geometry",
+      "prompt": "Show coordinate geometry for A(1,2), B(5,2), C(3,6)."
+    },
+    {
+      "id": "coor-04",
+      "family": "coordinate_geometry",
+      "prompt": "Represent the coordinate plane and line through (0,0) and (2,5)."
+    },
+    {
+      "id": "grap-01",
+      "family": "graph",
+      "prompt": "Graph y = x^2 - 4x + 3."
+    },
+    {
+      "id": "grap-02",
+      "family": "graph",
+      "prompt": "Graph y = 2x + 1."
+    },
+    {
+      "id": "grap-03",
+      "family": "graph",
+      "prompt": "Plot the graph of y = sin(x)."
+    },
+    {
+      "id": "grap-04",
+      "family": "graph",
+      "prompt": "Graph the relation y = x^3 - x."
+    },
+    {
+      "id": "geom-01",
+      "family": "geometric_figure",
+      "prompt": "Draw a triangle with points (0,0), (4,0), (2,3)."
+    },
+    {
+      "id": "geom-02",
+      "family": "geometric_figure",
+      "prompt": "Show a geometric figure: circle."
+    },
+    {
+      "id": "geom-03",
+      "family": "geometric_figure",
+      "prompt": "Draw a quadrilateral with points (0,0), (4,0), (5,3), (1,3)."
+    },
+    {
+      "id": "geom-04",
+      "family": "geometric_figure",
+      "prompt": "Represent a triangle ABC as a geometric figure."
+    },
+    {
+      "id": "prob-01",
+      "family": "probability_diagram",
+      "prompt": "Draw a probability tree diagram for events A and B."
+    },
+    {
+      "id": "prob-02",
+      "family": "probability_diagram",
+      "prompt": "Create a probability diagram with two branches."
+    },
+    {
+      "id": "prob-03",
+      "family": "probability_diagram",
+      "prompt": "Show the probability tree for success and failure."
+    },
+    {
+      "id": "prob-04",
+      "family": "probability_diagram",
+      "prompt": "Represent a probability diagram with event A and its complement."
+    },
+    {
+      "id": "venn-01",
+      "family": "venn_diagram",
+      "prompt": "Draw a Venn diagram for sets A and B."
+    },
+    {
+      "id": "venn-02",
+      "family": "venn_diagram",
+      "prompt": "Show a Venn diagram for sets A, B and C."
+    },
+    {
+      "id": "venn-03",
+      "family": "venn_diagram",
+      "prompt": "Create a Venn diagram illustrating A intersection B."
+    },
+    {
+      "id": "venn-04",
+      "family": "venn_diagram",
+      "prompt": "Represent the union of sets A and B using a Venn diagram."
+    },
+    {
+      "id": "func-01",
+      "family": "function_plot",
+      "prompt": "Create a function plot for f(x)=x^2."
+    },
+    {
+      "id": "func-02",
+      "family": "function_plot",
+      "prompt": "Plot the function f(x)=2x+1."
+    },
+    {
+      "id": "func-03",
+      "family": "function_plot",
+      "prompt": "Show the function plot of f(x)=sin(x)."
+    },
+    {
+      "id": "func-04",
+      "family": "function_plot",
+      "prompt": "Draw a function plot for f(x)=x^3."
+    },
+    {
+      "id": "numb-01",
+      "family": "number_line",
+      "prompt": "Draw a number line showing -3, 0 and 4."
+    },
+    {
+      "id": "numb-02",
+      "family": "number_line",
+      "prompt": "Show a number line with points -2 and 5."
+    },
+    {
+      "id": "numb-03",
+      "family": "number_line",
+      "prompt": "Represent the interval on a number line from -1 to 3."
+    },
+    {
+      "id": "numb-04",
+      "family": "number_line",
+      "prompt": "Draw a number line for values -5, 0, 2."
+    },
+    {
+      "id": "stat-01",
+      "family": "statistical_plot",
+      "prompt": "Draw a histogram for data 1 2 2 3 4 4 5."
+    },
+    {
+      "id": "stat-02",
+      "family": "statistical_plot",
+      "prompt": "Create a scatter plot for data 1 2 3 4."
+    },
+    {
+      "id": "stat-03",
+      "family": "statistical_plot",
+      "prompt": "Show a box plot for statistical data."
+    },
+    {
+      "id": "stat-04",
+      "family": "statistical_plot",
+      "prompt": "Draw a statistical plot for values 2 3 3 4 5."
+    },
+    {
+      "id": "circ-01",
+      "family": "circuit_diagram",
+      "prompt": "Draw a circuit diagram with a resistor and capacitor."
+    },
+    {
+      "id": "circ-02",
+      "family": "circuit_diagram",
+      "prompt": "Show a circuit diagram containing a resistor."
+    },
+    {
+      "id": "circ-03",
+      "family": "circuit_diagram",
+      "prompt": "Create a circuit diagram with an inductor."
+    },
+    {
+      "id": "circ-04",
+      "family": "circuit_diagram",
+      "prompt": "Represent a simple circuit diagram with a resistor and capacitor."
+    },
+    {
+      "id": "bloc-01",
+      "family": "block_diagram",
+      "prompt": "Draw a block diagram with input, controller and output."
+    },
+    {
+      "id": "bloc-02",
+      "family": "block_diagram",
+      "prompt": "Create a block diagram with input and output blocks."
+    },
+    {
+      "id": "bloc-03",
+      "family": "block_diagram",
+      "prompt": "Show a block diagram with three processing blocks."
+    },
+    {
+      "id": "bloc-04",
+      "family": "block_diagram",
+      "prompt": "Represent an engineering block diagram with three blocks."
+    },
+    {
+      "id": "sign-01",
+      "family": "signal_diagram",
+      "prompt": "Draw a signal diagram for an input and output."
+    },
+    {
+      "id": "sign-02",
+      "family": "signal_diagram",
+      "prompt": "Show a signal-flow diagram with two blocks."
+    },
+    {
+      "id": "sign-03",
+      "family": "signal_diagram",
+      "prompt": "Create a signal diagram for a control signal."
+    },
+    {
+      "id": "sign-04",
+      "family": "signal_diagram",
+      "prompt": "Represent a signal-flow diagram."
+    },
+    {
+      "id": "phas-01",
+      "family": "phasor_diagram",
+      "prompt": "Draw a phasor diagram for voltage and current."
+    },
+    {
+      "id": "phas-02",
+      "family": "phasor_diagram",
+      "prompt": "Show phasors V and I."
+    },
+    {
+      "id": "phas-03",
+      "family": "phasor_diagram",
+      "prompt": "Create a phasor diagram with two vectors."
+    },
+    {
+      "id": "phas-04",
+      "family": "phasor_diagram",
+      "prompt": "Represent a phasor diagram with angle 30 degrees."
+    },
+    {
+      "id": "vect-01",
+      "family": "vector_diagram",
+      "prompt": "Draw a vector diagram for vectors A and B."
+    },
+    {
+      "id": "vect-02",
+      "family": "vector_diagram",
+      "prompt": "Show a vector diagram with two vectors."
+    },
+    {
+      "id": "vect-03",
+      "family": "vector_diagram",
+      "prompt": "Create an engineering vector diagram."
+    },
+    {
+      "id": "vect-04",
+      "family": "vector_diagram",
+      "prompt": "Represent vectors V1 and V2 in a vector diagram."
+    },
+    {
+      "id": "tran-01",
+      "family": "transformer_equivalent_circuit",
+      "prompt": "Draw a transformer equivalent circuit with R1 and X1."
+    },
+    {
+      "id": "tran-02",
+      "family": "transformer_equivalent_circuit",
+      "prompt": "Show the transformer equivalent circuit."
+    },
+    {
+      "id": "tran-03",
+      "family": "transformer_equivalent_circuit",
+      "prompt": "Create an equivalent circuit for a transformer."
+    },
+    {
+      "id": "tran-04",
+      "family": "transformer_equivalent_circuit",
+      "prompt": "Represent transformer equivalent circuit parameters R1 and X1."
+    },
+    {
+      "id": "moto-01",
+      "family": "motor_diagram",
+      "prompt": "Draw an induction motor diagram."
+    },
+    {
+      "id": "moto-02",
+      "family": "motor_diagram",
+      "prompt": "Show a motor diagram with stator and rotor."
+    },
+    {
+      "id": "moto-03",
+      "family": "motor_diagram",
+      "prompt": "Create an induction motor diagram."
+    },
+    {
+      "id": "moto-04",
+      "family": "motor_diagram",
+      "prompt": "Represent the rotor and stator in a motor diagram."
+    },
+    {
+      "id": "cont-01",
+      "family": "control_system_diagram",
+      "prompt": "Draw a control system diagram with feedback."
+    },
+    {
+      "id": "cont-02",
+      "family": "control_system_diagram",
+      "prompt": "Show a feedback control system diagram."
+    },
+    {
+      "id": "cont-03",
+      "family": "control_system_diagram",
+      "prompt": "Create a control system block diagram with transfer function."
+    },
+    {
+      "id": "cont-04",
+      "family": "control_system_diagram",
+      "prompt": "Represent a control system with feedback."
+    },
+    {
+      "id": "logi-01",
+      "family": "logic_circuit",
+      "prompt": "Draw a logic circuit with AND gate."
+    },
+    {
+      "id": "logi-02",
+      "family": "logic_circuit",
+      "prompt": "Show a logic circuit using NAND and NOT gates."
+    },
+    {
+      "id": "logi-03",
+      "family": "logic_circuit",
+      "prompt": "Create an OR gate logic circuit."
+    },
+    {
+      "id": "logi-04",
+      "family": "logic_circuit",
+      "prompt": "Represent a logic circuit with XOR gate."
+    },
+    {
+      "id": "wave-01",
+      "family": "waveform",
+      "prompt": "Draw a sine wave waveform."
+    },
+    {
+      "id": "wave-02",
+      "family": "waveform",
+      "prompt": "Show a square wave waveform."
+    },
+    {
+      "id": "wave-03",
+      "family": "waveform",
+      "prompt": "Create an engineering waveform."
+    },
+    {
+      "id": "wave-04",
+      "family": "waveform",
+      "prompt": "Represent a triangle wave waveform."
+    },
+    {
+      "id": "netw-01",
+      "family": "network_diagram",
+      "prompt": "Draw a network diagram with vertices and edges."
+    },
+    {
+      "id": "netw-02",
+      "family": "network_diagram",
+      "prompt": "Show a network diagram for nodes A B C."
+    },
+    {
+      "id": "netw-03",
+      "family": "network_diagram",
+      "prompt": "Create an engineering network diagram."
+    },
+    {
+      "id": "netw-04",
+      "family": "network_diagram",
+      "prompt": "Represent a graph network with vertices and edges."
+    }
+  ]
+}

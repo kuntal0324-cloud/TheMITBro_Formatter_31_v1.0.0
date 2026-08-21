@@ -1,0 +1,160 @@
+{
+  "contract": "M27",
+  "description": "Representative end-to-end quality corpus for the TheMITbro Formatter.",
+  "papers": [
+    {
+      "schema_version": "1.0",
+      "title": "M27 Mathematical Baseline",
+      "exam": "GATE EE",
+      "subject": "Engineering Mathematics",
+      "duration_minutes": 60,
+      "instructions": [
+        "Use standard mathematical notation.",
+        "Answer all questions."
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "marks": 2,
+          "text": "Simplify $\\operatorname{det}(A)$."
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "marks": 2,
+          "text": "Evaluate $\\frac{1}{2}+\\frac{1}{3}$."
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "marks": 2,
+          "text": "For $z=2+3i$, find $|z|$.",
+          "options": [
+            "$5$",
+            "$\\sqrt{13}$",
+            "$13$",
+            "$1$"
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "math-baseline"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M27 Unicode and Metadata",
+      "exam": "JEE",
+      "subject": "Mathematics",
+      "duration_minutes": 90,
+      "total_marks": 6,
+      "metadata": {
+        "purpose": "M27 unicode regression",
+        "locale": "en-IN",
+        "case_id": "unicode-content"
+      },
+      "instructions": [
+        "Use π, ∑, ≤, ≥ and standard notation."
+      ],
+      "questions": [
+        {
+          "id": "u1",
+          "number": 1,
+          "marks": 2,
+          "text": "Evaluate $π$ to the required symbolic form."
+        },
+        {
+          "id": "u2",
+          "number": 2,
+          "marks": 2,
+          "text": "Solve $x^2\\leq 4$.",
+          "section": "A"
+        },
+        {
+          "id": "u3",
+          "number": 3,
+          "marks": 2,
+          "text": "Choose the correct value of $∑_{k=1}^{3} k$.",
+          "options": [
+            "$3$",
+            "$6$",
+            "$9$",
+            "$12$"
+          ]
+        }
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "title": "M27 Diagram Pipeline",
+      "exam": "GATE EE",
+      "subject": "Engineering Mathematics",
+      "duration_minutes": 45,
+      "questions": [
+        {
+          "id": "d1",
+          "number": 1,
+          "marks": 2,
+          "text": "Study the coordinate geometry figure for A(0,0) and B(3,4).",
+          "diagrams": [
+            {
+              "diagram_type": "coordinate_geometry",
+              "title": "Coordinate regression",
+              "coordinate_system": "cartesian",
+              "points": [
+                {
+                  "x": 0,
+                  "y": 0,
+                  "id": "A",
+                  "label": "A"
+                },
+                {
+                  "x": 3,
+                  "y": 4,
+                  "id": "B",
+                  "label": "B"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "d2",
+          "number": 2,
+          "marks": 2,
+          "text": "Study the engineering block diagram.",
+          "diagrams": [
+            {
+              "diagram_type": "block_diagram",
+              "title": "Signal path",
+              "nodes": [
+                {
+                  "id": "A",
+                  "kind": "block",
+                  "label": "Input"
+                },
+                {
+                  "id": "B",
+                  "kind": "block",
+                  "label": "Output"
+                }
+              ],
+              "edges": [
+                {
+                  "source": "A",
+                  "target": "B",
+                  "kind": "signal",
+                  "directed": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "case_id": "diagram-paper"
+      }
+    }
+  ]
+}
