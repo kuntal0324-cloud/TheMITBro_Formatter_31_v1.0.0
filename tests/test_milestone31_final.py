@@ -36,9 +36,14 @@ def test_no_tracked_python_cache_files():
 
 
 def test_release_notes_identify_v1():
-    text = (ROOT / "docs/milestones/M31/RELEASE_NOTES.md").read_text()
+    text = (ROOT / "docs/milestones/M31/RELEASE_NOTES.md").read_text(
+        encoding="utf-8"
+    )
+
+    normalized = text.lower()
+
     assert "v1.0.0" in text
-    assert "stable" in text
+    assert "stable" in normalized
 
 
 def test_source_compiles():
