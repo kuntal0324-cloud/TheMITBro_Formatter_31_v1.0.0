@@ -1,0 +1,67 @@
+{
+  "title": "TheMITbro GATE EE Representative Paper",
+  "page_count": 1,
+  "pages": [
+    {
+      "number": 1,
+      "width": 794.0,
+      "height": 1123.0,
+      "items": [
+        {
+          "id": "q1",
+          "kind": "question_block",
+          "rect": {
+            "x": 54.0,
+            "y": 132.0,
+            "width": 686.0,
+            "height": 42.0
+          },
+          "source": null,
+          "layer": 0,
+          "metadata": {
+            "page": 1
+          }
+        },
+        {
+          "id": "q2",
+          "kind": "question_block",
+          "rect": {
+            "x": 54.0,
+            "y": 192.0,
+            "width": 686.0,
+            "height": 282.0
+          },
+          "source": null,
+          "layer": 0,
+          "metadata": {
+            "page": 1
+          }
+        },
+        {
+          "id": "q3",
+          "kind": "question_block",
+          "rect": {
+            "x": 54.0,
+            "y": 492.0,
+            "width": 686.0,
+            "height": 282.0
+          },
+          "source": null,
+          "layer": 0,
+          "metadata": {
+            "page": 1
+          }
+        }
+      ]
+    }
+  ],
+  "manifest": {
+    "engine": "M20",
+    "deterministic": true,
+    "page_count": 1,
+    "question_count": 3,
+    "total_marks": 10.0,
+    "source_layout_engine": "M19",
+    "boundary": "question-paper composition; PDF/HTML production belongs to M21"
+  }
+}
