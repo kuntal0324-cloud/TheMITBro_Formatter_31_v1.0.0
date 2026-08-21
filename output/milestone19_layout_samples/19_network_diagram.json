@@ -1,0 +1,147 @@
+{
+  "diagram_type": "network_diagram",
+  "width": 1000,
+  "height": 650,
+  "margin": 48,
+  "title": "Network diagram",
+  "items": [
+    {
+      "id": "node:A",
+      "kind": "node",
+      "rect": {
+        "x": 140.0,
+        "y": 325.0,
+        "width": 42.0,
+        "height": 42.0
+      },
+      "source": "A",
+      "layer": 0,
+      "metadata": {
+        "node_kind": "vertex",
+        "label": "A"
+      }
+    },
+    {
+      "id": "node:B",
+      "kind": "node",
+      "rect": {
+        "x": 366.0,
+        "y": 325.0,
+        "width": 42.0,
+        "height": 42.0
+      },
+      "source": "B",
+      "layer": 1,
+      "metadata": {
+        "node_kind": "vertex",
+        "label": "B"
+      }
+    },
+    {
+      "id": "node:C",
+      "kind": "node",
+      "rect": {
+        "x": 592.0,
+        "y": 325.0,
+        "width": 42.0,
+        "height": 42.0
+      },
+      "source": "C",
+      "layer": 2,
+      "metadata": {
+        "node_kind": "vertex",
+        "label": "C"
+      }
+    },
+    {
+      "id": "node:D",
+      "kind": "node",
+      "rect": {
+        "x": 818.0,
+        "y": 325.0,
+        "width": 42.0,
+        "height": 42.0
+      },
+      "source": "D",
+      "layer": 3,
+      "metadata": {
+        "node_kind": "vertex",
+        "label": "D"
+      }
+    }
+  ],
+  "connectors": [
+    {
+      "source": "A",
+      "target": "B",
+      "kind": "edge",
+      "label": null,
+      "directed": false,
+      "start": {
+        "x": 161.0,
+        "y": 346.0
+      },
+      "end": {
+        "x": 387.0,
+        "y": 346.0
+      }
+    },
+    {
+      "source": "B",
+      "target": "C",
+      "kind": "edge",
+      "label": null,
+      "directed": false,
+      "start": {
+        "x": 387.0,
+        "y": 346.0
+      },
+      "end": {
+        "x": 613.0,
+        "y": 346.0
+      }
+    },
+    {
+      "source": "C",
+      "target": "D",
+      "kind": "edge",
+      "label": null,
+      "directed": false,
+      "start": {
+        "x": 613.0,
+        "y": 346.0
+      },
+      "end": {
+        "x": 839.0,
+        "y": 346.0
+      }
+    },
+    {
+      "source": "D",
+      "target": "A",
+      "kind": "edge",
+      "label": null,
+      "directed": false,
+      "start": {
+        "x": 839.0,
+        "y": 346.0
+      },
+      "end": {
+        "x": 161.0,
+        "y": 346.0
+      }
+    }
+  ],
+  "metadata": {
+    "engine": "M19",
+    "deterministic": true,
+    "item_count": 4,
+    "overlap_count": 0,
+    "content_rect": {
+      "x": 48,
+      "y": 90.0,
+      "width": 904,
+      "height": 512.0
+    }
+  }
+}

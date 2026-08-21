@@ -1,0 +1,35 @@
+{
+  "diagram_type": "waveform",
+  "width": 1000,
+  "height": 650,
+  "margin": 48,
+  "title": "Engineering waveform",
+  "items": [
+    {
+      "id": "waveform:plot",
+      "kind": "plot",
+      "rect": {
+        "x": 100.0,
+        "y": 241.0,
+        "width": 800.0,
+        "height": 210.0
+      },
+      "source": "waveform",
+      "layer": 0,
+      "metadata": {}
+    }
+  ],
+  "connectors": [],
+  "metadata": {
+    "engine": "M19",
+    "deterministic": true,
+    "item_count": 1,
+    "overlap_count": 0,
+    "content_rect": {
+      "x": 48,
+      "y": 90.0,
+      "width": 904,
+      "height": 512.0
+    }
+  }
+}

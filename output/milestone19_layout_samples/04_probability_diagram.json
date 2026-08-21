@@ -1,0 +1,101 @@
+{
+  "diagram_type": "probability_diagram",
+  "width": 1000,
+  "height": 650,
+  "margin": 48,
+  "title": "Probability diagram",
+  "items": [
+    {
+      "id": "node:S",
+      "kind": "node",
+      "rect": {
+        "x": 247.0,
+        "y": 319.0,
+        "width": 54.0,
+        "height": 54.0
+      },
+      "source": "S",
+      "layer": 0,
+      "metadata": {
+        "node_kind": "root",
+        "label": "S"
+      }
+    },
+    {
+      "id": "node:A",
+      "kind": "node",
+      "rect": {
+        "x": 699.0,
+        "y": 233.6667,
+        "width": 54.0,
+        "height": 54.0
+      },
+      "source": "A",
+      "layer": 1,
+      "metadata": {
+        "node_kind": "event",
+        "label": "A"
+      }
+    },
+    {
+      "id": "node:B",
+      "kind": "node",
+      "rect": {
+        "x": 699.0,
+        "y": 404.3333,
+        "width": 54.0,
+        "height": 54.0
+      },
+      "source": "B",
+      "layer": 1,
+      "metadata": {
+        "node_kind": "event",
+        "label": "B"
+      }
+    }
+  ],
+  "connectors": [
+    {
+      "source": "S",
+      "target": "A",
+      "kind": "branch",
+      "label": "P(A)",
+      "directed": false,
+      "start": {
+        "x": 274.0,
+        "y": 346.0
+      },
+      "end": {
+        "x": 726.0,
+        "y": 260.6667
+      }
+    },
+    {
+      "source": "S",
+      "target": "B",
+      "kind": "branch",
+      "label": "P(B)",
+      "directed": false,
+      "start": {
+        "x": 274.0,
+        "y": 346.0
+      },
+      "end": {
+        "x": 726.0,
+        "y": 431.3333
+      }
+    }
+  ],
+  "metadata": {
+    "engine": "M19",
+    "deterministic": true,
+    "item_count": 3,
+    "overlap_count": 0,
+    "content_rect": {
+      "x": 48,
+      "y": 90.0,
+      "width": 904,
+      "height": 512.0
+    }
+  }
+}

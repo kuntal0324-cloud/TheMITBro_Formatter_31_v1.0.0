@@ -1,0 +1,56 @@
+{
+  "diagram_type": "circuit_diagram",
+  "width": 1000,
+  "height": 650,
+  "margin": 48,
+  "title": "Circuit diagram",
+  "items": [
+    {
+      "id": "component:1",
+      "kind": "component",
+      "rect": {
+        "x": 312.0,
+        "y": 225.5,
+        "width": 302.0,
+        "height": 50.0
+      },
+      "source": "R1",
+      "layer": 0,
+      "metadata": {
+        "component_type": "resistor",
+        "label": "R1",
+        "allow_overlap": true
+      }
+    },
+    {
+      "id": "component:2",
+      "kind": "component",
+      "rect": {
+        "x": 638.0,
+        "y": 234.5,
+        "width": 50.0,
+        "height": 232.0
+      },
+      "source": "C1",
+      "layer": 0,
+      "metadata": {
+        "component_type": "capacitor",
+        "label": "C1",
+        "allow_overlap": true
+      }
+    }
+  ],
+  "connectors": [],
+  "metadata": {
+    "engine": "M19",
+    "deterministic": true,
+    "item_count": 2,
+    "overlap_count": 0,
+    "content_rect": {
+      "x": 48,
+      "y": 90.0,
+      "width": 904,
+      "height": 512.0
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "diagram_type": "number_line",
+  "width": 1000,
+  "height": 650,
+  "margin": 48,
+  "title": "Number line",
+  "items": [
+    {
+      "id": "point:P1",
+      "kind": "point",
+      "rect": {
+        "x": 445.8333,
+        "y": 336.0,
+        "width": 20.0,
+        "height": 20.0
+      },
+      "source": "P1",
+      "layer": 0,
+      "metadata": {
+        "label": "-2"
+      }
+    },
+    {
+      "id": "point:P2",
+      "kind": "point",
+      "rect": {
+        "x": 533.8333,
+        "y": 336.0,
+        "width": 20.0,
+        "height": 20.0
+      },
+      "source": "P2",
+      "layer": 0,
+      "metadata": {
+        "label": "0"
+      }
+    },
+    {
+      "id": "point:P3",
+      "kind": "point",
+      "rect": {
+        "x": 489.8333,
+        "y": 336.0,
+        "width": 20.0,
+        "height": 20.0
+      },
+      "source": "P3",
+      "layer": 0,
+      "metadata": {
+        "label": "3"
+      }
+    }
+  ],
+  "connectors": [],
+  "metadata": {
+    "engine": "M19",
+    "deterministic": true,
+    "item_count": 3,
+    "overlap_count": 0,
+    "content_rect": {
+      "x": 48,
+      "y": 90.0,
+      "width": 904,
+      "height": 512.0
+    }
+  }
+}

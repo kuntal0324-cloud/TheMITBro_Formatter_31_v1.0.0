@@ -1,0 +1,35 @@
+{
+  "diagram_type": "phasor_diagram",
+  "width": 1000,
+  "height": 650,
+  "margin": 48,
+  "title": "Phasor diagram",
+  "items": [
+    {
+      "id": "vector:V",
+      "kind": "vector",
+      "rect": {
+        "x": 479.0,
+        "y": 325.0,
+        "width": 42.0,
+        "height": 42.0
+      },
+      "source": "V",
+      "layer": 0,
+      "metadata": {}
+    }
+  ],
+  "connectors": [],
+  "metadata": {
+    "engine": "M19",
+    "deterministic": true,
+    "item_count": 1,
+    "overlap_count": 0,
+    "content_rect": {
+      "x": 48,
+      "y": 90.0,
+      "width": 904,
+      "height": 512.0
+    }
+  }
+}

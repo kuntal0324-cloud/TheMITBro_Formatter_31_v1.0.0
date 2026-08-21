@@ -1,0 +1,175 @@
+{
+  "diagram_type": "transformer_equivalent_circuit",
+  "width": 1000,
+  "height": 650,
+  "margin": 48,
+  "title": "Transformer equivalent circuit",
+  "items": [
+    {
+      "id": "component:1",
+      "kind": "component",
+      "rect": {
+        "x": 48,
+        "y": 202.0,
+        "width": 50.0,
+        "height": 132.0
+      },
+      "source": "V1",
+      "layer": 0,
+      "metadata": {
+        "component_type": "voltage_source",
+        "label": "V1",
+        "allow_overlap": true
+      }
+    },
+    {
+      "id": "component:2",
+      "kind": "component",
+      "rect": {
+        "x": 66.6188,
+        "y": 221.0,
+        "width": 192.0,
+        "height": 50.0
+      },
+      "source": "R1",
+      "layer": 0,
+      "metadata": {
+        "component_type": "resistor",
+        "label": "R1",
+        "allow_overlap": true
+      }
+    },
+    {
+      "id": "component:3",
+      "kind": "component",
+      "rect": {
+        "x": 254.9521,
+        "y": 221.0,
+        "width": 192.0,
+        "height": 50.0
+      },
+      "source": "X1",
+      "layer": 0,
+      "metadata": {
+        "component_type": "inductor",
+        "label": "X1",
+        "allow_overlap": true
+      }
+    },
+    {
+      "id": "component:4",
+      "kind": "component",
+      "rect": {
+        "x": 443.2974,
+        "y": 221.0,
+        "width": 172.0,
+        "height": 50.0
+      },
+      "source": "wire",
+      "layer": 0,
+      "metadata": {
+        "component_type": "wire",
+        "label": null,
+        "allow_overlap": true
+      }
+    },
+    {
+      "id": "component:5",
+      "kind": "component",
+      "rect": {
+        "x": 611.6487,
+        "y": 221.0,
+        "width": 162.0,
+        "height": 50.0
+      },
+      "source": "R2'",
+      "layer": 0,
+      "metadata": {
+        "component_type": "resistor",
+        "label": "R2'",
+        "allow_overlap": true
+      }
+    },
+    {
+      "id": "component:6",
+      "kind": "component",
+      "rect": {
+        "x": 770.0,
+        "y": 188.5,
+        "width": 182.0,
+        "height": 50.0
+      },
+      "source": "X2'",
+      "layer": 0,
+      "metadata": {
+        "component_type": "inductor",
+        "label": "X2'",
+        "allow_overlap": true
+      }
+    },
+    {
+      "id": "component:7",
+      "kind": "component",
+      "rect": {
+        "x": 902.0,
+        "y": 262.5,
+        "width": 50.0,
+        "height": 232.0
+      },
+      "source": "wire",
+      "layer": 0,
+      "metadata": {
+        "component_type": "wire",
+        "label": null,
+        "allow_overlap": true
+      }
+    },
+    {
+      "id": "component:8",
+      "kind": "component",
+      "rect": {
+        "x": 116.6667,
+        "y": 421.0,
+        "width": 772.0,
+        "height": 50.0
+      },
+      "source": "wire",
+      "layer": 0,
+      "metadata": {
+        "component_type": "wire",
+        "label": null,
+        "allow_overlap": true
+      }
+    },
+    {
+      "id": "component:9",
+      "kind": "component",
+      "rect": {
+        "x": 48,
+        "y": 358.0,
+        "width": 50.0,
+        "height": 132.0
+      },
+      "source": "wire",
+      "layer": 0,
+      "metadata": {
+        "component_type": "wire",
+        "label": null,
+        "allow_overlap": true
+      }
+    }
+  ],
+  "connectors": [],
+  "metadata": {
+    "engine": "M19",
+    "deterministic": true,
+    "item_count": 9,
+    "overlap_count": 0,
+    "content_rect": {
+      "x": 48,
+      "y": 90.0,
+      "width": 904,
+      "height": 512.0
+    }
+  }
+}

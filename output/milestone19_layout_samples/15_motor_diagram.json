@@ -1,0 +1,35 @@
+{
+  "diagram_type": "motor_diagram",
+  "width": 1000,
+  "height": 650,
+  "margin": 48,
+  "title": "Motor diagram",
+  "items": [
+    {
+      "id": "motor:machine",
+      "kind": "machine",
+      "rect": {
+        "x": 320.0,
+        "y": 166.0,
+        "width": 360.0,
+        "height": 360.0
+      },
+      "source": "motor",
+      "layer": 0,
+      "metadata": {}
+    }
+  ],
+  "connectors": [],
+  "metadata": {
+    "engine": "M19",
+    "deterministic": true,
+    "item_count": 1,
+    "overlap_count": 0,
+    "content_rect": {
+      "x": 48,
+      "y": 90.0,
+      "width": 904,
+      "height": 512.0
+    }
+  }
+}

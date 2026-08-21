@@ -1,0 +1,67 @@
+{
+  "diagram_type": "geometric_figure",
+  "width": 1000,
+  "height": 650,
+  "margin": 48,
+  "title": "Triangle",
+  "items": [
+    {
+      "id": "point:A",
+      "kind": "point",
+      "rect": {
+        "x": 446.0,
+        "y": 334.5,
+        "width": 20.0,
+        "height": 20.0
+      },
+      "source": "A",
+      "layer": 0,
+      "metadata": {
+        "label": "A"
+      }
+    },
+    {
+      "id": "point:B",
+      "kind": "point",
+      "rect": {
+        "x": 534.0,
+        "y": 334.5,
+        "width": 20.0,
+        "height": 20.0
+      },
+      "source": "B",
+      "layer": 0,
+      "metadata": {
+        "label": "B"
+      }
+    },
+    {
+      "id": "point:C",
+      "kind": "point",
+      "rect": {
+        "x": 490.0,
+        "y": 337.5,
+        "width": 20.0,
+        "height": 20.0
+      },
+      "source": "C",
+      "layer": 0,
+      "metadata": {
+        "label": "C"
+      }
+    }
+  ],
+  "connectors": [],
+  "metadata": {
+    "engine": "M19",
+    "deterministic": true,
+    "item_count": 3,
+    "overlap_count": 0,
+    "content_rect": {
+      "x": 48,
+      "y": 90.0,
+      "width": 904,
+      "height": 512.0
+    }
+  }
+}

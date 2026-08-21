@@ -1,0 +1,35 @@
+{
+  "diagram_type": "graph",
+  "width": 1000,
+  "height": 650,
+  "margin": 48,
+  "title": "Graph",
+  "items": [
+    {
+      "id": "diagram:content",
+      "kind": "content",
+      "rect": {
+        "x": 464.0,
+        "y": 325.0,
+        "width": 72.0,
+        "height": 42.0
+      },
+      "source": null,
+      "layer": 0,
+      "metadata": {}
+    }
+  ],
+  "connectors": [],
+  "metadata": {
+    "engine": "M19",
+    "deterministic": true,
+    "item_count": 1,
+    "overlap_count": 0,
+    "content_rect": {
+      "x": 48,
+      "y": 90.0,
+      "width": 904,
+      "height": 512.0
+    }
+  }
+}

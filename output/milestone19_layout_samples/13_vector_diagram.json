@@ -1,0 +1,35 @@
+{
+  "diagram_type": "vector_diagram",
+  "width": 1000,
+  "height": 650,
+  "margin": 48,
+  "title": "Vector diagram",
+  "items": [
+    {
+      "id": "vector:A",
+      "kind": "vector",
+      "rect": {
+        "x": 370.18,
+        "y": 279.0596,
+        "width": 259.64,
+        "height": 133.8807
+      },
+      "source": "A",
+      "layer": 0,
+      "metadata": {}
+    }
+  ],
+  "connectors": [],
+  "metadata": {
+    "engine": "M19",
+    "deterministic": true,
+    "item_count": 1,
+    "overlap_count": 0,
+    "content_rect": {
+      "x": 48,
+      "y": 90.0,
+      "width": 904,
+      "height": 512.0
+    }
+  }
+}
