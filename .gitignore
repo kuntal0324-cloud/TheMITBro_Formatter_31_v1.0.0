@@ -1,0 +1,40 @@
+# ============================================================
+# TheMITbro Formatter - Python / M23
+# ============================================================
+
+# Python cache / bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Pytest
+.pytest_cache/
+
+# Coverage - GENERATED, DO NOT COMMIT
+.coverage
+.coverage.*
+coverage.xml
+coverage.json
+coverage.lcov
+htmlcov/
+
+# Test reports - GENERATED
+junit/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
