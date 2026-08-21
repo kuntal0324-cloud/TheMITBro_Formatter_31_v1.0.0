@@ -1,0 +1,151 @@
+name: TheMITbro M30 Release Candidate
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  m30-release-candidate:
+    name: M30 Release Candidate / Repository Freeze
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          set -e
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install pytest pytest-cov
+
+      - name: Verify M30 required files
+        run: |
+          set -e
+          echo "=== M30 required files ==="
+          test -f README.md
+          test -f .coveragerc
+          test -f requirements.txt
+          test -f docs/ROADMAP.md
+          test -f docs/ARCHITECTURE.md
+          test -f docs/FORMAT_SPECIFICATION.md
+          test -f docs/RELEASE_PROCESS.md
+          test -f docs/milestones/README.md
+          test -f docs/milestones/M30/ACCEPTANCE.md
+          test -f docs/milestones/M30/RELEASE_NOTES.md
+          test -f tests/test_milestone30_release_candidate.py
+          test -f scripts/m30_release_manifest.py
+          test -f scripts/m30_release_audit.py
+          test -f .github/workflows/m30-release-candidate.yml
+          echo "M30 required files: PASSED"
+
+      - name: Validate Python source integrity
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python -m compileall -q src scripts tests
+          echo "Python source compilation: PASSED"
+
+      - name: Run complete regression suite
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python -m pytest -q
+
+      - name: Run M30 release-candidate tests
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python -m pytest -q tests/test_milestone30_release_candidate.py
+
+      - name: Generate release-candidate manifest
+        run: |
+          set -e
+          mkdir -p m30-evidence
+          python scripts/m30_release_manifest.py --output m30-evidence/release-manifest.json
+          test -s m30-evidence/release-manifest.json
+          echo "Release-candidate manifest: GENERATED"
+
+      - name: Run M30 independent audit
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python scripts/m30_release_audit.py
+
+      - name: Check release cleanliness
+        run: |
+          set -e
+          echo "Checking tracked repository files..."
+          if git ls-files | grep -E '(^|/)(__pycache__|.*\.py[cod]$)' ; then
+            echo "ERROR: Python cache/bytecode files are tracked in Git."
+            exit 1
+          fi
+          if git ls-files | grep -E '(^|/)(\.coverage$|coverage/)' ; then
+            echo "ERROR: Coverage output is tracked in Git."
+            exit 1
+          fi
+          if git ls-files | grep -E '(^|/)\.pytest_cache(/|$)' ; then
+            echo "ERROR: .pytest_cache is tracked in Git."
+            exit 1
+          fi
+          if git ls-files | grep -E '(^|/)MILESTONE[0-9]+_(ACCEPTANCE|RELEASE_NOTES)\.md$' ; then
+            echo "ERROR: Legacy milestone documents remain in repository root."
+            exit 1
+          fi
+          echo "Release cleanliness: PASSED"
+
+      - name: Upload M30 release-candidate evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: m30-release-candidate-evidence
+          path: |
+            m30-evidence/release-manifest.json
+            docs/milestones/M30/ACCEPTANCE.md
+            docs/milestones/M30/RELEASE_NOTES.md
+            docs/
+          if-no-files-found: warn
+
+      - name: M30 acceptance
+        run: |
+          echo "=============================================="
+          echo "TheMITbro Milestone 30"
+          echo "Release Candidate / Repository Freeze"
+          echo "=============================================="
+          echo "Documentation consolidation: PASSED"
+          echo "Historical milestone preservation: PASSED"
+          echo "Root repository cleanup: PASSED"
+          echo "Python source integrity: PASSED"
+          echo "Complete regression: PASSED"
+          echo "M30 release-candidate tests: PASSED"
+          echo "Public API/build contract: PASSED"
+          echo "Representative production compilation: PASSED"
+          echo "Deterministic artifacts: PASSED"
+          echo "Release manifest: GENERATED"
+          echo "Independent audit: PASSED"
+          echo "Release cleanliness: PASSED"
+          echo "Evidence: UPLOADED"
+          echo "=============================================="
+          echo "MILESTONE 30 CI VALIDATION PASSED"
+          echo "=============================================="

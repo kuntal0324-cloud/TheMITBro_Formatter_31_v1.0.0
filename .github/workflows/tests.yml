@@ -1,0 +1,469 @@
+name: TheMITbro Formatter Tests
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Regression + Coverage + M25 Contract
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # ============================================================
+      # 1. CHECKOUT
+      # ============================================================
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      # ============================================================
+      # 2. PYTHON
+      # ============================================================
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      # ============================================================
+      # 3. DEPENDENCIES
+      # ============================================================
+
+      - name: Install dependencies
+        run: |
+          set -e
+          python -m pip install --upgrade pip
+
+          if [ -f requirements.txt ]; then
+            python -m pip install -r requirements.txt
+          fi
+
+          python -m pip install pytest pytest-cov
+
+      # ============================================================
+      # 4. REPOSITORY STRUCTURE
+      # ============================================================
+
+      - name: Verify repository structure
+        run: |
+          set -e
+
+          test -d src
+          test -d tests
+          test -d input
+          test -d output
+          test -d .github/workflows
+
+          test -f README.md
+          test -f requirements.txt
+          test -f .coveragerc
+
+          echo "Repository structure: PASSED"
+
+      # ============================================================
+      # 5. SOURCE INTEGRITY
+      # ============================================================
+
+      - name: Validate Python source integrity
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python -m compileall -q src
+          echo "Python source compilation: PASSED"
+
+      # ============================================================
+      # 6. COMPLETE REGRESSION + COVERAGE
+      # ============================================================
+
+      - name: Run complete regression suite
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+
+          rm -rf junit coverage .coverage
+          mkdir -p junit coverage
+
+          python -m pytest -q \
+            --cov=src \
+            --cov-branch \
+            --cov-context=test \
+            --cov-report=term-missing \
+            --cov-report=xml:coverage/coverage.xml \
+            --cov-report=html:coverage/html \
+            --junitxml=junit/test-results.xml
+
+      # ============================================================
+      # 7. EXPLICIT OVERALL COVERAGE GATE
+      # ============================================================
+
+      - name: Verify overall coverage
+        run: |
+          set -e
+
+          test -f coverage/coverage.xml
+
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          path = Path("coverage/coverage.xml")
+          root = ET.parse(path).getroot()
+
+          rate = float(root.attrib.get("line-rate", "0"))
+          percentage = rate * 100
+
+          print(f"Overall coverage: {percentage:.2f}%")
+
+          if percentage < 90.0:
+              raise SystemExit(
+                  f"Coverage gate FAILED: {percentage:.2f}% < 90.00%"
+              )
+
+          print("Overall coverage gate: PASSED")
+          PY
+
+      # ============================================================
+      # 8. CRITICAL PRODUCTION MODULE COVERAGE
+      # ============================================================
+
+      - name: Check critical production module coverage
+        run: |
+          set -e
+
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          path = Path("coverage/coverage.xml")
+
+          if not path.exists():
+              raise SystemExit("Coverage XML not found.")
+
+          root = ET.parse(path).getroot()
+
+          required = {
+              "processor.py": 90.0,
+              "solver.py": 90.0,
+              "main.py": 90.0,
+              "question_paper_ir.py": 90.0,
+              "question_paper_validator.py": 90.0,
+
+              "math_normalizer.py": 90.0,
+              "layout_engine.py": 90.0,
+              "diagram_renderer.py": 90.0,
+              "engineering_diagram_renderer.py": 90.0,
+              "question_paper_renderer.py": 90.0,
+              "question_compiler.py": 90.0,
+              "public_api.py": 90.0,
+              "pdf_production.py": 90.0,
+              "html_production.py": 90.0,
+          }
+
+          found = {}
+
+          for cls in root.findall(".//class"):
+              filename = cls.attrib.get("filename", "").replace("\\", "/")
+
+              if filename.startswith("src/"):
+                  filename = filename[4:]
+
+              found[filename] = (
+                  float(cls.attrib.get("line-rate", "0")) * 100
+              )
+
+          failed = False
+
+          print("=== Critical module coverage ===")
+
+          for filename, minimum in required.items():
+              coverage = found.get(filename)
+
+              if coverage is None:
+                  print(f"MISSING: {filename}")
+                  failed = True
+                  continue
+
+              print(
+                  f"{filename}: {coverage:.2f}% "
+                  f"(minimum {minimum:.2f}%)"
+              )
+
+              if coverage < minimum:
+                  print(
+                      f"FAILED: {filename} is below "
+                      f"{minimum:.2f}%"
+                  )
+                  failed = True
+
+          print("================================")
+
+          if failed:
+              raise SystemExit(
+                  "Critical production coverage gate FAILED."
+              )
+
+          print("Critical production coverage: PASSED")
+          PY
+
+      # ============================================================
+      # 9. M22 REGRESSION
+      # ============================================================
+
+      - name: Run M22 regression suite
+        if: ${{ hashFiles('tests/test_milestone22_regression.py') != '' }}
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python -m pytest -q tests/test_milestone22_regression.py
+
+      # ============================================================
+      # 10. M23 HARDENING
+      # ============================================================
+
+      - name: Run M23 hardening tests
+        if: ${{ hashFiles('tests/test_milestone23_hardening.py') != '' }}
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python -m pytest -q tests/test_milestone23_hardening.py
+
+      # ============================================================
+      # 11. M24 RELEASE CERTIFICATION
+      # ============================================================
+
+      - name: Run M24 release tests
+        if: ${{ hashFiles('tests/test_milestone24_release.py') != '' }}
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python -m pytest -q tests/test_milestone24_release.py
+
+      # ============================================================
+      # 12. M25 RELEASE CONTRACT
+      # ============================================================
+
+      - name: Run M25 release contract tests
+        if: ${{ hashFiles('tests/test_milestone25_release.py') != '' }}
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python -m pytest -q tests/test_milestone25_release.py
+
+      # ============================================================
+      # 13. M25 INDEPENDENT AUDIT
+      # ============================================================
+
+      - name: Run M25 contract audit
+        if: ${{ hashFiles('scripts/m25_contract_audit.py') != '' }}
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python scripts/m25_contract_audit.py
+
+      # ============================================================
+      # 14. M26 INTEGRITY
+      # ============================================================
+
+      - name: Run M26 integrity tests
+        if: ${{ hashFiles('tests/test_milestone26_integrity.py') != '' }}
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python -m pytest -q tests/test_milestone26_integrity.py
+
+      - name: Run M26 integrity audit
+        if: ${{ hashFiles('scripts/m26_integrity_audit.py') != '' }}
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python scripts/m26_integrity_audit.py
+
+      # ============================================================
+      # 15. M27 QUALITY
+      # ============================================================
+
+      - name: Run M27 quality tests
+        if: ${{ hashFiles('tests/test_milestone27_quality.py') != '' }}
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python -m pytest -q tests/test_milestone27_quality.py
+
+      - name: Run M27 quality audit
+        if: ${{ hashFiles('scripts/m27_quality_audit.py') != '' }}
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python scripts/m27_quality_audit.py
+
+      # ============================================================
+      # 16. M28 REAL-WORLD CORPUS
+      # ============================================================
+
+      - name: Run M28 corpus compatibility tests
+        if: ${{ hashFiles('tests/test_milestone28_corpus.py') != '' }}
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python -m pytest -q tests/test_milestone28_corpus.py
+
+      - name: Run M28 corpus audit
+        if: ${{ hashFiles('scripts/m28_corpus_audit.py') != '' }}
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python scripts/m28_corpus_audit.py
+
+      # ============================================================
+      # 17. M29 COMPLETENESS
+      # ============================================================
+
+      - name: Run M29 completeness tests
+        if: ${{ hashFiles('tests/test_milestone29_completeness.py') != '' }}
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python -m pytest -q tests/test_milestone29_completeness.py
+
+      - name: Run M29 completeness audit
+        if: ${{ hashFiles('scripts/m29_completeness_audit.py') != '' }}
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python scripts/m29_completeness_audit.py
+
+      # ============================================================
+      # 18. M30 RELEASE CANDIDATE
+      # ============================================================
+
+      - name: Run M30 release-candidate tests
+        if: ${{ hashFiles('tests/test_milestone30_release_candidate.py') != '' }}
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python -m pytest -q tests/test_milestone30_release_candidate.py
+
+      - name: Run M30 release-candidate audit
+        if: ${{ hashFiles('scripts/m30_release_audit.py') != '' }}
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python scripts/m30_release_audit.py
+
+      # ============================================================
+      # 19. RELEASE CLEANLINESS
+      # ============================================================
+
+      - name: Check release cleanliness
+        run: |
+          set -e
+
+          echo "Checking tracked repository files..."
+
+          if git ls-files | grep -E '(^|/)(__pycache__|.*\.py[cod]$)' ; then
+            echo "ERROR: Python cache/bytecode files are tracked in Git."
+            exit 1
+          fi
+
+          if git ls-files | grep -E '(^|/)(\.coverage$|coverage/)' ; then
+            echo "ERROR: Coverage output is tracked in Git."
+            exit 1
+          fi
+
+          if git ls-files | grep -E '(^|/)\.pytest_cache(/|$)' ; then
+            echo "ERROR: .pytest_cache is tracked in Git."
+            exit 1
+          fi
+
+          echo "Release cleanliness: PASSED"
+
+      # ============================================================
+      # 20. UPLOAD JUNIT
+      # ============================================================
+
+      - name: Upload JUnit test report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: tests-junit-report
+          path: junit/test-results.xml
+          if-no-files-found: warn
+
+      # ============================================================
+      # 21. UPLOAD COVERAGE
+      # ============================================================
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: tests-coverage-report
+          path: |
+            coverage/coverage.xml
+            coverage/html/
+          if-no-files-found: warn
+
+      # ============================================================
+      # 22. FINAL ACCEPTANCE
+      # ============================================================
+
+      - name: Test workflow acceptance
+        run: |
+          echo "=============================================="
+          echo "TheMITbro Formatter Test Pipeline"
+          echo "=============================================="
+          echo "Source integrity: PASSED"
+          echo "Complete regression: PASSED"
+          echo "Overall coverage >= 90%: PASSED"
+          echo "Critical production coverage: PASSED"
+          echo "M22 regression: PASSED/NOT APPLICABLE"
+          echo "M23 hardening: PASSED/NOT APPLICABLE"
+          echo "M24 release tests: PASSED/NOT APPLICABLE"
+          echo "M25 release contract: PASSED/NOT APPLICABLE"
+          echo "M25 contract audit: PASSED/NOT APPLICABLE"
+          echo "M26 integrity tests: PASSED/NOT APPLICABLE"
+          echo "M26 integrity audit: PASSED/NOT APPLICABLE"
+          echo "M27 quality tests: PASSED/NOT APPLICABLE"
+          echo "M27 quality audit: PASSED/NOT APPLICABLE"
+          echo "M28 corpus tests: PASSED/NOT APPLICABLE"
+          echo "M28 corpus audit: PASSED/NOT APPLICABLE"
+          echo "M29 completeness tests: PASSED/NOT APPLICABLE"
+          echo "M29 completeness audit: PASSED/NOT APPLICABLE"
+          echo "M30 release-candidate tests: PASSED/NOT APPLICABLE"
+          echo "M30 release-candidate audit: PASSED/NOT APPLICABLE"
+          echo "Release cleanliness: PASSED"
+          echo "JUnit report: GENERATED"
+          echo "Coverage report: GENERATED"
+          echo "=============================================="
+          echo "TEST PIPELINE PASSED"
+          echo "=============================================="

@@ -1,0 +1,100 @@
+name: TheMITbro M28 Real-World Corpus
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  m28-corpus:
+    name: M28 Corpus Compatibility
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          set -e
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            python -m pip install -r requirements.txt
+          fi
+          python -m pip install pytest pytest-cov
+
+      - name: Verify M28 structure
+        run: |
+          set -e
+          test -f docs/milestones/M28/ACCEPTANCE.md
+          test -f docs/milestones/M28/RELEASE_NOTES.md
+          test -f input/milestone28_real_world_corpus.json
+          test -f tests/test_milestone28_corpus.py
+          test -f scripts/m28_corpus_audit.py
+          test -f .github/workflows/m28-corpus.yml
+          echo "M28 structure: PASSED"
+
+      - name: Run M28 corpus tests
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python -m pytest -q tests/test_milestone28_corpus.py
+
+      - name: Run M28 independent audit
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python scripts/m28_corpus_audit.py
+
+      - name: Release cleanliness
+        run: |
+          set -e
+          if git ls-files | grep -E '(^|/)(__pycache__|.*\.py[cod]$)' ; then
+            echo "ERROR: Python cache/bytecode files are tracked in Git."
+            exit 1
+          fi
+          if git ls-files | grep -E '(^|/)(\.coverage$|coverage/)' ; then
+            echo "ERROR: Coverage output is tracked in Git."
+            exit 1
+          fi
+          if git ls-files | grep -E '(^|/)\.pytest_cache(/|$)' ; then
+            echo "ERROR: .pytest_cache is tracked in Git."
+            exit 1
+          fi
+          echo "Release cleanliness: PASSED"
+
+      - name: M28 acceptance
+        run: |
+          echo "=============================================="
+          echo "TheMITbro Milestone 28"
+          echo "Real-World Corpus / Compatibility Validation"
+          echo "=============================================="
+          echo "20-paper corpus: PASSED"
+          echo "20-family diversity: PASSED"
+          echo "All-format compilation: PASSED"
+          echo "Deterministic output: PASSED"
+          echo "Artifact verification: PASSED"
+          echo "Unicode coverage: PASSED"
+          echo "Diagram integration: PASSED"
+          echo "Fail-closed validation: PASSED"
+          echo "Release cleanliness: PASSED"
+          echo "=============================================="
+          echo "MILESTONE 28 CI VALIDATION PASSED"
+          echo "=============================================="

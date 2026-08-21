@@ -1,0 +1,118 @@
+name: TheMITbro M25 Contract
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+  pull_request:
+    branches:
+      - main
+      - master
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  m25-contract:
+    name: M25 Release Contract
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          set -e
+
+          python -m pip install --upgrade pip
+
+          if [ -f requirements.txt ]; then
+            python -m pip install -r requirements.txt
+          fi
+
+          python -m pip install pytest pytest-cov
+
+      - name: Verify M25 required files
+        run: |
+          set -e
+
+          echo "=== M25 required files ==="
+
+          echo "Working directory:"
+          pwd
+
+          echo "Repository root:"
+          ls -la
+
+          echo "Checking .coveragerc..."
+          test -f .coveragerc
+          echo ".coveragerc: OK"
+
+          echo "Checking M25 coverage tests..."
+          test -f tests/test_m25_coverage_hardening.py
+          echo "M25 coverage tests: OK"
+
+          echo "Checking M25 release tests..."
+          test -f tests/test_milestone25_release.py
+          echo "M25 release tests: OK"
+
+          echo "Checking M25 contract audit..."
+          test -f scripts/m25_contract_audit.py
+          echo "M25 contract audit: OK"
+
+          echo "M25 required files: PASSED"
+
+      - name: Run M25 coverage hardening tests
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+
+          python -m pytest -q \
+            tests/test_m25_coverage_hardening.py
+
+      - name: Run M25 release tests
+        if: ${{ hashFiles('tests/test_milestone25_release.py') != '' }}
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+
+          python -m pytest -q \
+            tests/test_milestone25_release.py
+
+      - name: Run M25 contract audit
+        if: ${{ hashFiles('scripts/m25_contract_audit.py') != '' }}
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+
+          python scripts/m25_contract_audit.py
+
+      - name: M25 acceptance
+        run: |
+          echo "=============================================="
+          echo "TheMITbro Milestone 25"
+          echo "Release Contract"
+          echo "=============================================="
+
+          echo "Required files: PASSED"
+          echo "Coverage hardening tests: PASSED"
+          echo "M25 release tests: PASSED"
+          echo "M25 contract audit: PASSED"
+
+          echo "=============================================="
+          echo "MILESTONE 25 CONTRACT VALIDATION PASSED"
+          echo "=============================================="

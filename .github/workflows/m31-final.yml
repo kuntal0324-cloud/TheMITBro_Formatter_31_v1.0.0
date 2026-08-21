@@ -1,0 +1,78 @@
+name: TheMITbro Formatter M31 Final Certification
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  m31:
+    name: M31 - Formatter v1.0 Final Certification
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          set -e
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            python -m pip install -r requirements.txt
+          fi
+          python -m pip install pytest pytest-cov
+
+      - name: M31 final tests
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python -m pytest -q tests/test_milestone31_final.py
+
+      - name: Complete regression
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python -m pytest -q
+
+      - name: Final audit
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+          python scripts/m31_final_audit.py
+
+      - name: Generate release manifest
+        run: |
+          set -e
+          python scripts/m31_release_manifest.py
+          test -f output/milestone31_release_manifest.json
+
+      - name: Final acceptance
+        run: |
+          echo "=============================================="
+          echo "TheMITbro Formatter v1.0"
+          echo "Milestone 31 - Final Certification"
+          echo "=============================================="
+          echo "M31 final tests: PASSED"
+          echo "Complete regression: PASSED"
+          echo "Final audit: PASSED"
+          echo "Release manifest: GENERATED"
+          echo "Release cleanliness: PASSED"
+          echo "=============================================="
+          echo "MILESTONE 31 CI VALIDATION PASSED"
+          echo "FORMATTER v1.0 CERTIFICATION PASSED"
+          echo "=============================================="

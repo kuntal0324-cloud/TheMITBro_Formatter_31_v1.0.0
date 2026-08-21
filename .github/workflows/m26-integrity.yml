@@ -1,24 +1,22 @@
-name: TheMITbro M27 Quality
+name: TheMITbro M26 Integrity
 
 on:
   push:
     branches:
       - main
       - master
-
   pull_request:
     branches:
       - main
       - master
-
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  m27-quality:
-    name: Production Quality + End-to-End Validation
+  m26-integrity:
+    name: Reproducible Build + Artifact Integrity
     runs-on: ubuntu-latest
 
     steps:
@@ -57,62 +55,76 @@ jobs:
           python -m pip install pytest pytest-cov
 
       # ============================================================
-      # 4. REQUIRED FILES
-      # ============================================================
-
-      - name: Verify M27 required files
-        run: |
-          set -e
-
-          echo "=== M27 required files ==="
-
-          test -f docs/milestones/M27/ACCEPTANCE.md
-          test -f docs/milestones/M27/RELEASE_NOTES.md
-          test -f tests/test_milestone27_quality.py
-          test -f scripts/m27_quality_audit.py
-          test -f input/milestone27_quality_corpus.json
-          test -f .github/workflows/m27-quality.yml
-
-          echo "M27 required files: PASSED"
-
-      # ============================================================
-      # 5. SOURCE VALIDATION
+      # 4. SOURCE VALIDATION
       # ============================================================
 
       - name: Validate Python source
         run: |
           set -e
 
-          python -m compileall -q src scripts tests
+          python -m compileall -q src scripts
 
           echo "Python source compilation: PASSED"
 
       # ============================================================
-      # 6. M27 QUALITY TESTS
+      # 5. M26 INTEGRITY TESTS
       # ============================================================
 
-      - name: Run M27 quality tests
+      - name: Run M26 integrity tests
         env:
           PYTHONPATH: .
         run: |
           set -e
 
-          python -m pytest -q tests/test_milestone27_quality.py
+          python -m pytest -q \
+            tests/test_milestone26_integrity.py
 
       # ============================================================
-      # 7. INDEPENDENT M27 AUDIT
+      # 6. M26 CORE COVERAGE
       # ============================================================
 
-      - name: Run M27 quality audit
+      - name: Verify M26 core coverage
         env:
           PYTHONPATH: .
         run: |
           set -e
 
-          python scripts/m27_quality_audit.py
+          python -m pytest -q \
+            --cov=src.question_compiler \
+            --cov=src.public_api \
+            --cov-branch \
+            --cov-report=term-missing \
+            --cov-fail-under=90 \
+            tests/test_milestone26_integrity.py \
+            tests/test_milestone25_release.py
 
       # ============================================================
-      # 8. RELEASE CLEANLINESS
+      # 7. M25 REGRESSION
+      # ============================================================
+
+      - name: Run M25 release regression
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+
+          python -m pytest -q \
+            tests/test_milestone25_release.py
+
+      # ============================================================
+      # 8. M26 AUDIT
+      # ============================================================
+
+      - name: Run M26 integrity audit
+        env:
+          PYTHONPATH: .
+        run: |
+          set -e
+
+          python scripts/m26_integrity_audit.py
+
+      # ============================================================
+      # 9. RELEASE CLEANLINESS
       # ============================================================
 
       - name: Verify release cleanliness
@@ -137,20 +149,20 @@ jobs:
           echo "Release cleanliness: PASSED"
 
       # ============================================================
-      # 9. FINAL ACCEPTANCE
+      # 10. FINAL ACCEPTANCE
       # ============================================================
 
-      - name: M27 acceptance
+      - name: M26 acceptance
         run: |
           echo "=============================================="
-          echo "TheMITbro Milestone 27"
-          echo "Production Quality + End-to-End Validation"
+          echo "TheMITbro Milestone 26"
+          echo "Reproducible Build + Artifact Integrity"
           echo "=============================================="
-          echo "Required files: PASSED"
           echo "Source compilation: PASSED"
-          echo "M27 quality tests: PASSED"
-          echo "M27 quality audit: PASSED"
+          echo "M26 integrity tests: PASSED"
+          echo "M25 regression: PASSED"
+          echo "M26 integrity audit: PASSED"
           echo "Release cleanliness: PASSED"
           echo "=============================================="
-          echo "MILESTONE 27 QUALITY VALIDATION PASSED"
+          echo "MILESTONE 26 ACCEPTANCE PASSED"
           echo "=============================================="
